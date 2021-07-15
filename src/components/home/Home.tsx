@@ -1,4 +1,5 @@
 import React from 'react'
+import { getParam } from '../../utils/paramsHelper'
 
 const data = [
     {
@@ -23,11 +24,7 @@ const data = [
 ]
 
 export const Home = (): JSX.Element => {
-    const search = window.location.search
-    const params = new URLSearchParams(search)
-    const linkId = params.get('linkid') ?? params.get('LinkId')
-
-    console.log(linkId)
+    const linkId = getParam('linkid')
 
     return (
         <div>
