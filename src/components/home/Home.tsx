@@ -23,6 +23,11 @@ const data = [
 ]
 
 export const Home = (): JSX.Element => {
+    const search = window.location.search
+    const params = new URLSearchParams(search)
+    const linkId = params.get('linkid') ?? params.get('LinkId')
+
+    console.log(linkId)
 
     return (
         <div>
@@ -35,7 +40,7 @@ export const Home = (): JSX.Element => {
                 </thead>
                 {data?.map((element) => {
                     return (
-                        <tbody>
+                        <tbody key={JSON.stringify(element)}>
                             <tr>
                                 <th>{element.group}</th>
                                 <th>{element.event}</th>
@@ -52,7 +57,7 @@ export const Home = (): JSX.Element => {
                                         <tbody>
                                             {element.athletes?.map((athlete) => {
                                                 return (
-                                                    <tr>
+                                                    <tr key={JSON.stringify(athlete)}>
                                                         <th>{athlete.name}</th>
                                                         <th>{athlete.club}</th>
                                                     </tr>
