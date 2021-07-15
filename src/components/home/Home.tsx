@@ -39,20 +39,22 @@ export const Home = (): JSX.Element => {
                                 <th>{element.event}</th>
                             </tr>
                             <tr>
-                                <table style={{width: '100%'}}>
-                                    <tr>
-                                        <th>Navn</th>
-                                        <th>Klubb</th>
-                                    </tr>
-                                    {element.athletes?.map((athlete) => {
-                                        return (
-                                            <tr>
-                                                <th>{athlete.name}</th>
-                                                <th>{athlete.club}</th>
-                                            </tr>
-                                        )
-                                    })}
-                                </table>
+                                <th colSpan={2}>
+                                    <table style={{width: '100%'}}>
+                                        <tr>
+                                            <th>Navn</th>
+                                            <th>Klubb</th>
+                                        </tr>
+                                        {element.athletes?.map((athlete) => {
+                                            return (
+                                                <tr>
+                                                    <th>{athlete.name}</th>
+                                                    <th>{athlete.club}</th>
+                                                </tr>
+                                            )
+                                        })}
+                                    </table>
+                                </th>
                             </tr>
                         </Fragment>
                     )
